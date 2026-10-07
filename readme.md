@@ -1,3 +1,54 @@
+# Neural A* Heuristic
+
+Learned neural heuristic for A* search across multiple puzzle environments.
+
+The project trains a small neural network `V(s)` to estimate the remaining distance from a puzzle state to a solved state. The learned value function is then used as the heuristic in A* search:
+
+```text
+f(s) = g(s) + V(s)
+```
+
+The model is environment-agnostic and interacts with puzzles through a shared environment API, allowing the same architecture to work across multiple state spaces.
+
+## Supported Environments
+
+- **15 Puzzle** — classic sliding puzzle
+- **Toggle Lights** — row/column light-switching puzzle
+- **Cylinder Game** — cylindrical state-space puzzle
+
+## How It Works
+
+```text
+Solved state
+    │
+    ▼
+Random backward walks
+    │
+    ▼
+Training states + distance targets
+    │
+    ▼
+Neural Value Function V(s)
+    │
+    ▼
+A* Search
+    │
+    ▼
+Solution
+```
+
+The network does not contain puzzle-specific logic. Each environment exposes a common API for state encoding, valid actions and transitions.
+
+## Tech Stack
+
+- Python 3.11
+- PyTorch
+- NumPy
+- A* search
+- Docker
+
+---
+
 # Бейзлайн
 
 Учим маленькую `V(s)` оценивать, сколько шагов осталось до решённого,
