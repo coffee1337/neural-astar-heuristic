@@ -1,3 +1,5 @@
+> **[Interactive case study →](https://coffee1337.github.io/projects/neural-astar/)**
+
 # Neural A* Heuristic
 
 Learned neural heuristic for A* search across multiple puzzle environments.
